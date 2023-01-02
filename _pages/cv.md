@@ -9,4 +9,4 @@ redirect_from:
 
 {% include base_path %}
 
-[Link to my CV](https://lulizou.github.io/files/CV.pdf)
+[Link to my CV](https://lulizou.github.io/files/Zou_CV.pdf)
