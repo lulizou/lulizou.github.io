@@ -1,0 +1,78 @@
+---
+title: "BST260: Introduction to Data Science"
+format: html
+collection: teaching
+type: "Masters and PhD students"
+permalink: /teaching/2021-2022-fall-teaching
+venue: "Harvard T.H. Chan School of Public Health"
+date: 2022-09-01
+location: "Boston, MA"
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+I enjoy teaching data analysis and visualization in R.
+Most recently, I was a TA for BST260 in Fall 2021 and 2022. See below the 
+map I created for the 2022 Midterm elections poll results taken from 
+FiveThirtyEight from my lecture on R Shiny.
+
+
+```{r}
+library(leaflet)
+library(geojsonio) # To download in the map information
+library(plotly) # For interactive plots
+library(tidyverse)
+library(lubridate)
+load('polls_snapshot_12-6-22.RData')
+states <- geojsonio::geojson_read("https://rstudio.github.io/leaflet/json/us-states.geojson", what = "sp")
+```
+
+```{r}
+all_senate <- senate_polls |>
+      filter(start_date >= ymd('2022-06-01'), end_date <= ymd('2022-11-08'))
+all_senate_wide <- all_senate |>
+      select(poll_id, pollster, state, party, pct) |>
+      pivot_wider(names_from = party, values_from = pct, values_fn = first) |>
+      mutate(spread = (DEM-REP)/100) |>
+      filter(!is.na(spread))
+
+states$spread <- 0
+states$spread[s$name %in% all_senate_mean()$state] <- all_senate_mean()$spread
+
+```
+
+```{r}
+leaflet(states_poly()) |>
+  setView(-96, 37.8, 4) |>
+  # see http://leaflet-extras.github.io/leaflet-providers/preview/index.html
+  # for more ProviderTiles options
+  addProviderTiles('CartoDB.PositronNoLabels') |> 
+  addPolygons(
+    layerId = ~name,
+    fillColor = ~pal(spread),
+    weight = 2,
+    opacity = 1,
+    color = 'white',
+    dashArray = '3',
+    fillOpacity = 0.7,
+    highlightOptions = highlightOptions(
+      weight = 5,
+      color = "#666",
+      dashArray = "",
+      fillOpacity = 0.7,
+      bringToFront = TRUE),
+    label = labels
+  ) |>
+  addLegend(
+    'bottomright',
+    pal = pal,
+    values = ~spread,
+    title = 'Spread (DEM-REP)',
+    opacity = 1
+  )
+```
+
+
+
