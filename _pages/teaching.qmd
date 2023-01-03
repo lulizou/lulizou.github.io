@@ -23,6 +23,7 @@ library(geojsonio) # To download in the map information
 library(plotly) # For interactive plots
 library(tidyverse)
 library(lubridate)
+library(htmlwidgets)
 load('../files/polls_snapshot_12-6-22.RData')
 states <- geojsonio::geojson_read("https://rstudio.github.io/leaflet/json/us-states.geojson", what = "sp")
 ```
@@ -78,7 +79,8 @@ leaflet(states) |>
     values = ~spread,
     title = 'Spread (DEM-REP)',
     opacity = 1
-  )
+  ) |>
+  saveWidget('../files/map.html')
 ```
 
 
