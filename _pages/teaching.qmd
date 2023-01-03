@@ -1,9 +1,5 @@
 ---
-leafletmap: true
-always_allow_html: yes
-format: 
-  gfm:
-    preserve_yaml: true
+format: html
 execute:
   echo: false
   warning: false
