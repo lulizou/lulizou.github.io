@@ -1,5 +1,10 @@
 ---
-format: html
+title: "Teaching"
+permalink: /teaching/
+author_profile: true
+format: 
+  html:
+    preserve_yaml: true
 execute:
   echo: false
   warning: false
