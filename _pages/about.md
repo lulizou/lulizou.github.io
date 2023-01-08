@@ -16,5 +16,5 @@ In summer 2022, I was an intern in oncology bioinformatics at Genentech.
 Prior to joining the PhD
 program, I was a post-bac fellow at NHGRI with Francis Collins. I double-majored
 in statistics and genetics at UW-Madison, and I grew up in Milwaukee, Wisconsin. 
-In my spare time, I enjoy doing yoga, catching up on sci-fi/fantasy TV shows, and playing the 
+In my spare time, I enjoy doing yoga, watching Wisconsin sports, and playing the 
 latest Pokemon game.
