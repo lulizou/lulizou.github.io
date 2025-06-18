@@ -8,7 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-I am currently a Senior Scientist at Genentech. Previously, I was biostatistics 
+I am currently a Senior Scientist at Genentech. Previously, I was 
+a biostatistics 
 PhD student and NSF GRFP fellow at Harvard advised by [Martin Aryee](https://www.aryeelab.org/) 
 and [Rafael Irizarry](http://rafalab.dfci.harvard.edu/). 
 My research focused on the development of 
